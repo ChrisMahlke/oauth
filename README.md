@@ -37,11 +37,11 @@ To generate the PEM files (`server-priv-without-pwd.pem` for the private key and
 
 Here’s a step-by-step guide on how to generate these files using OpenSSL:
 
-### Step 1: Install OpenSSL
+#### Step 3b: Install OpenSSL
 
 If you don't already have OpenSSL installed, you can download and install it from [OpenSSL's official website](https://www.openssl.org/) or via a package manager for your operating system.
 
-### Step 2: Generate a Private Key
+#### Step 3c: Generate a Private Key
 
 Open your command line interface and run the following command to create a private key:
 
@@ -50,7 +50,7 @@ openssl genrsa -out server-priv-without-pwd.pem 2048
 ```
 This command generates a 2048-bit RSA private key and outputs it to a file named `server-priv-without-pwd.pem`.
 
-### Step 3: Generate a Certificate Signing Request (CSR)
+#### Step 3d: Generate a Certificate Signing Request (CSR)
 
 Using the private key, generate a CSR. While generating the CSR, you will be prompted to enter details that will be incorporated into your certificate request:
 
@@ -59,7 +59,7 @@ openssl req -new -key server-priv-without-pwd.pem -out server.csr
 ```
 You'll need to answer questions about the domain name and your organization. For testing purposes, you can input your localhost or domain name when asked for the "Common Name."
 
-### Step 4: Generate a Self-Signed Certificate
+#### Step 3e: Generate a Self-Signed Certificate
 
 Now, generate a self-signed certificate using the CSR. This certificate will be valid for 365 days; you can change the number of days as needed:
 
@@ -68,7 +68,7 @@ openssl x509 -req -days 365 -in server.csr -signkey server-priv-without-pwd.pem 
 ```
 This command takes the CSR (`server.csr`), signs it with the private key (`server-priv-without-pwd.pem`), and generates a certificate (`server-pub.pem`) valid for 365 days.
 
-### Step 5: Clean Up
+#### Step 3f: Clean Up
 
 You might want to delete the CSR file if it's no longer needed, as your certificate and private key are now ready:
 
@@ -76,17 +76,17 @@ You might want to delete the CSR file if it's no longer needed, as your certific
 rm server.csr
 ```
 
-### Step 6: Configure Your Node.js Application
+### Step 4: Configure Your Node.js Application
 
 Make sure the paths to the private key and certificate in your Node.js application point to where you've stored `server-priv-without-pwd.pem` and `server-pub.pem`.
 
 Using these steps, you can create the necessary PEM files to set up HTTPS for your application. If you plan to deploy this application to a production environment, you should consider obtaining a certificate from a recognized Certificate Authority (CA) instead of using a self-signed certificate.
 
-### Step 4: Adjust the Code (if necessary)
+### Step 5: Adjust the Code (if necessary)
 
 Make sure the file paths and other user-specific details (like GitHub OAuth credentials and the specific port number) are correct as per your environment.
 
-### Step 5: Run Your Code
+### Step 6: Run Your Code
 
 Run your Node.js application using:
 
