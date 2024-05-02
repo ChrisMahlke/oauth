@@ -7,8 +7,8 @@
   "oauth": {
     "clientID": "my-client",
     "clientSecret": "dc6277f8-94bd-4a5a-9ef3-4295ae76b0e2",
-    "githubClientID": "8e6994d36c959a49789e",
-    "githubClientSecret": "19be7e98b217440f05a5af09aa0a2a0290258f9b",
+    "githubClientID": "<GitHub OAuth app client ID>",
+    "githubClientSecret": "<GitHub OAuth app client secret>",
     "authorizationEndpoint": "https://github.com/login/oauth/authorize",
     "tokenEndpoint": "https://github.com/login/oauth/access_token",
     "userinfoEndpoint": "https://api.github.com/user"
